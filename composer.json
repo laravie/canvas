@@ -76,7 +76,7 @@
             "@php vendor/bin/pint",
             "@php vendor/bin/phpstan analyse --verbose"
         ],
-        "test": "@php vendor/bin/phpunit -c ./ --color",
+        "test": "@php vendor/bin/phpunit --no-configuration --color ./tests ./workbench/tests",
         "ci": [
             "@composer audit",
             "@prepare",
