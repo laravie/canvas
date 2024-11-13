@@ -6,22 +6,19 @@ on:
 
 jobs:
   analyse:
-    runs-on: ${{ matrix.os }}
+    runs-on: "ubuntu-latest"
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        os:
-          - "ubuntu-latest"
-        php:
-          - 8.1
+        php: [8.2]
         experimental:
           - false
 
-    name: PHP${{ matrix.php }} on ${{ matrix.os }}
+    name: PHP:${{ matrix.php }} Code Analysis
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -43,4 +40,4 @@ jobs:
         run: vendor/bin/pint --test
 
       - name: Execute Static Code Analysis
-        run: vendor/bin/phpstan analyse
+        run: vendor/bin/phpstan analyse --verbose
