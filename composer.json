@@ -33,6 +33,7 @@
         "illuminate/support": "^9.52.15",
         "orchestra/canvas-core": "^7.7",
         "orchestra/testbench-core": "^7.31",
+        "symfony/polyfill-php83": "^1.31",
         "symfony/yaml": "^5.4 || ^6.0"
     },
     "require-dev": {
