@@ -37,6 +37,7 @@ class ListenerMakeCommand extends \Illuminate\Foundation\Console\ListenerMakeCom
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -48,6 +49,7 @@ class ListenerMakeCommand extends \Illuminate\Foundation\Console\ListenerMakeCom
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -58,6 +60,7 @@ class ListenerMakeCommand extends \Illuminate\Foundation\Console\ListenerMakeCom
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

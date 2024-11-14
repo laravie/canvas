@@ -36,7 +36,6 @@ class UserModelMakeCommand extends GeneratorCommand
      * @param  string  $stub
      * @return string
      */
-    #[\Override]
     protected function resolveDefaultStubPath($stub)
     {
         return __DIR__.$stub;
@@ -78,6 +77,7 @@ class UserModelMakeCommand extends GeneratorCommand
      *
      * @return array<int, array>
      */
+    #[\Override]
     protected function getOptions()
     {
         return [

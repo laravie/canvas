@@ -35,6 +35,7 @@ class ProviderMakeCommand extends \Illuminate\Foundation\Console\ProviderMakeCom
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -46,6 +47,7 @@ class ProviderMakeCommand extends \Illuminate\Foundation\Console\ProviderMakeCom
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -56,6 +58,7 @@ class ProviderMakeCommand extends \Illuminate\Foundation\Console\ProviderMakeCom
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();
@@ -67,6 +70,7 @@ class ProviderMakeCommand extends \Illuminate\Foundation\Console\ProviderMakeCom
      * @param  string  $rootNamespace
      * @return string
      */
+    #[\Override]
     protected function getDefaultNamespace($rootNamespace)
     {
         return rtrim($this->generatorPreset()->providerNamespace(), '\\');

@@ -37,6 +37,7 @@ class JobMakeCommand extends \Illuminate\Foundation\Console\JobMakeCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -48,6 +49,7 @@ class JobMakeCommand extends \Illuminate\Foundation\Console\JobMakeCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -58,6 +60,7 @@ class JobMakeCommand extends \Illuminate\Foundation\Console\JobMakeCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

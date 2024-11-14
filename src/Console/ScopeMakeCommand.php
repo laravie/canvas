@@ -35,6 +35,7 @@ class ScopeMakeCommand extends \Illuminate\Foundation\Console\ScopeMakeCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -46,6 +47,7 @@ class ScopeMakeCommand extends \Illuminate\Foundation\Console\ScopeMakeCommand
      * @param  string  $model
      * @return string
      */
+    #[\Override]
     protected function qualifyModel(string $model)
     {
         return $this->qualifyModelUsingCanvas($model);
@@ -57,6 +59,7 @@ class ScopeMakeCommand extends \Illuminate\Foundation\Console\ScopeMakeCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -67,6 +70,7 @@ class ScopeMakeCommand extends \Illuminate\Foundation\Console\ScopeMakeCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

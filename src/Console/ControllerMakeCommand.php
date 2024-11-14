@@ -37,6 +37,7 @@ class ControllerMakeCommand extends \Illuminate\Routing\Console\ControllerMakeCo
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -48,6 +49,7 @@ class ControllerMakeCommand extends \Illuminate\Routing\Console\ControllerMakeCo
      * @param  string  $model
      * @return string
      */
+    #[\Override]
     protected function qualifyModel(string $model)
     {
         return $this->qualifyModelUsingCanvas($model);
@@ -58,6 +60,7 @@ class ControllerMakeCommand extends \Illuminate\Routing\Console\ControllerMakeCo
      *
      * @return array
      */
+    #[\Override]
     protected function buildParentReplacements()
     {
         $parentModelClass = $this->parseModel($this->option('parent'));
@@ -86,6 +89,7 @@ class ControllerMakeCommand extends \Illuminate\Routing\Console\ControllerMakeCo
      * @param  array  $replace
      * @return array
      */
+    #[\Override]
     protected function buildModelReplacements(array $replace)
     {
         $modelClass = $this->parseModel($this->option('model'));
@@ -115,6 +119,7 @@ class ControllerMakeCommand extends \Illuminate\Routing\Console\ControllerMakeCo
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -125,6 +130,7 @@ class ControllerMakeCommand extends \Illuminate\Routing\Console\ControllerMakeCo
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

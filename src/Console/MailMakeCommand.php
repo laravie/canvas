@@ -37,6 +37,7 @@ class MailMakeCommand extends \Illuminate\Foundation\Console\MailMakeCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -58,6 +59,7 @@ class MailMakeCommand extends \Illuminate\Foundation\Console\MailMakeCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -68,6 +70,7 @@ class MailMakeCommand extends \Illuminate\Foundation\Console\MailMakeCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

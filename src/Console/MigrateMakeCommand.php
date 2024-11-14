@@ -42,6 +42,7 @@ class MigrateMakeCommand extends \Illuminate\Database\Console\Migrations\Migrate
      *
      * @return void
      */
+    #[\Override]
     public function handle()
     {
         $preset = $this->generatorPreset();

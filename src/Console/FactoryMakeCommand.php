@@ -37,6 +37,7 @@ class FactoryMakeCommand extends \Illuminate\Database\Console\Factories\FactoryM
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -59,6 +60,7 @@ class FactoryMakeCommand extends \Illuminate\Database\Console\Factories\FactoryM
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getNamespace($name)
     {
         return rtrim($this->generatorPreset()->factoryNamespace(), '\\');
@@ -78,6 +80,7 @@ class FactoryMakeCommand extends \Illuminate\Database\Console\Factories\FactoryM
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function guessModelName($name)
     {
         if (str_ends_with($name, 'Factory')) {
@@ -93,6 +96,7 @@ class FactoryMakeCommand extends \Illuminate\Database\Console\Factories\FactoryM
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -103,6 +107,7 @@ class FactoryMakeCommand extends \Illuminate\Database\Console\Factories\FactoryM
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();
@@ -113,6 +118,7 @@ class FactoryMakeCommand extends \Illuminate\Database\Console\Factories\FactoryM
      *
      * @return string|null
      */
+    #[\Override]
     protected function userProviderModel()
     {
         return $this->userProviderModelUsingCanvas();

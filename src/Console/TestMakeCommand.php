@@ -37,6 +37,7 @@ class TestMakeCommand extends \Illuminate\Foundation\Console\TestMakeCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -74,7 +75,7 @@ class TestMakeCommand extends \Illuminate\Foundation\Console\TestMakeCommand
     {
         $namespaceTestCase = $testCase = str_replace('/', '\\', $testCase);
 
-        if (Str::startsWith($testCase, '\\')) {
+        if (str_starts_with($testCase, '\\')) {
             $stub = str_replace('NamespacedDummyTestCase', trim($testCase, '\\'), $stub);
         } else {
             $stub = str_replace('NamespacedDummyTestCase', $namespaceTestCase, $stub);
@@ -95,6 +96,7 @@ class TestMakeCommand extends \Illuminate\Foundation\Console\TestMakeCommand
      * @param  string  $stub
      * @return string
      */
+    #[\Override]
     protected function resolveStubPath($stub)
     {
         $preset = $this->generatorPreset();
@@ -133,6 +135,7 @@ class TestMakeCommand extends \Illuminate\Foundation\Console\TestMakeCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -143,6 +146,7 @@ class TestMakeCommand extends \Illuminate\Foundation\Console\TestMakeCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->generatorPreset()->testingNamespace();

@@ -35,6 +35,7 @@ class RequestMakeCommand extends \Illuminate\Foundation\Console\RequestMakeComma
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -46,6 +47,7 @@ class RequestMakeCommand extends \Illuminate\Foundation\Console\RequestMakeComma
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -56,6 +58,7 @@ class RequestMakeCommand extends \Illuminate\Foundation\Console\RequestMakeComma
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

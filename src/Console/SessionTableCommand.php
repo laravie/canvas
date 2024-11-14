@@ -34,6 +34,7 @@ class SessionTableCommand extends \Illuminate\Session\Console\SessionTableComman
      *
      * @return string
      */
+    #[\Override]
     protected function createBaseMigration()
     {
         return $this->createBaseMigrationUsingCanvas('sessions');

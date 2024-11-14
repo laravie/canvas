@@ -35,6 +35,7 @@ class CastMakeCommand extends \Illuminate\Foundation\Console\CastMakeCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -46,6 +47,7 @@ class CastMakeCommand extends \Illuminate\Foundation\Console\CastMakeCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -56,6 +58,7 @@ class CastMakeCommand extends \Illuminate\Foundation\Console\CastMakeCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

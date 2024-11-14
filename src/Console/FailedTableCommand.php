@@ -35,6 +35,7 @@ class FailedTableCommand extends \Illuminate\Queue\Console\FailedTableCommand
      * @param  string  $table
      * @return string
      */
+    #[\Override]
     protected function createBaseMigration($table = 'failed_jobs')
     {
         return $this->createBaseMigrationUsingCanvas($table);

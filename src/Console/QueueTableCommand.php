@@ -36,6 +36,7 @@ class QueueTableCommand extends TableCommand
      * @param  string  $table
      * @return string
      */
+    #[\Override]
     protected function createBaseMigration($table = 'jobs')
     {
         return $this->createBaseMigrationUsingCanvas($table);
