@@ -3,7 +3,6 @@
 namespace Orchestra\Canvas\Console;
 
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
 use Orchestra\Canvas\Core\Concerns\CodeGenerator;
 use Orchestra\Canvas\Core\Concerns\UsesGeneratorOverrides;
 use Orchestra\Canvas\GeneratorPreset;
