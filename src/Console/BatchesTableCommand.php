@@ -35,6 +35,7 @@ class BatchesTableCommand extends \Illuminate\Queue\Console\BatchesTableCommand
      * @param  string  $table
      * @return string
      */
+    #[\Override]
     protected function createBaseMigration($table = 'job_batches')
     {
         return $this->createBaseMigrationUsingCanvas($table);

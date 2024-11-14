@@ -24,6 +24,7 @@ class UserModelMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getStub()
     {
         return $this->resolveStubPath('/stubs/user-model.stub');
@@ -35,6 +36,7 @@ class UserModelMakeCommand extends GeneratorCommand
      * @param  string  $stub
      * @return string
      */
+    #[\Override]
     protected function resolveDefaultStubPath($stub)
     {
         return __DIR__.$stub;
@@ -43,6 +45,7 @@ class UserModelMakeCommand extends GeneratorCommand
     /**
      * Get the default namespace for the class.
      */
+    #[\Override]
     public function getDefaultNamespace($rootNamespace)
     {
         return rtrim($this->generatorPreset()->modelNamespace(), '\\');
@@ -53,6 +56,7 @@ class UserModelMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getNameInput()
     {
         return 'User';
@@ -63,6 +67,7 @@ class UserModelMakeCommand extends GeneratorCommand
      *
      * @return array
      */
+    #[\Override]
     protected function getArguments()
     {
         return [];
