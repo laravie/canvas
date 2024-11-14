@@ -34,6 +34,7 @@ class NotificationTableCommand extends \Illuminate\Notifications\Console\Notific
      *
      * @return string
      */
+    #[\Override]
     protected function createBaseMigration()
     {
         return $this->createBaseMigrationUsingCanvas('notifications');

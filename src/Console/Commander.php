@@ -37,6 +37,7 @@ class Commander extends \Orchestra\Testbench\Console\Commander
      *
      * @return \Illuminate\Foundation\Application
      */
+    #[\Override]
     public function laravel()
     {
         if (! $this->app instanceof LaravelApplication) {

@@ -28,6 +28,7 @@ class PresetMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getStub()
     {
         $name = Str::lower($this->getNameInput());
@@ -45,6 +46,7 @@ class PresetMakeCommand extends GeneratorCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->generatorPreset()->basePath().'/canvas.yaml';
@@ -53,6 +55,7 @@ class PresetMakeCommand extends GeneratorCommand
     /**
      * Get the root namespace for the class.
      */
+    #[\Override]
     protected function rootNamespace(): string
     {
         $namespace = transform($this->option('namespace'), function (string $namespace) {
@@ -77,6 +80,7 @@ class PresetMakeCommand extends GeneratorCommand
      *
      * @return array<int, array>
      */
+    #[\Override]
     protected function getOptions()
     {
         return [

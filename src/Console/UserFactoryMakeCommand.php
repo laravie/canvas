@@ -24,6 +24,7 @@ class UserFactoryMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getStub()
     {
         return $this->resolveStubPath('/stubs/user-factory.stub');
@@ -45,6 +46,7 @@ class UserFactoryMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->generatorPreset()->factoryNamespace();
@@ -81,6 +83,7 @@ class UserFactoryMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getNameInput()
     {
         return 'UserFactory';
@@ -91,6 +94,7 @@ class UserFactoryMakeCommand extends GeneratorCommand
      *
      * @return array
      */
+    #[\Override]
     protected function getArguments()
     {
         return [];
@@ -101,6 +105,7 @@ class UserFactoryMakeCommand extends GeneratorCommand
      *
      * @return array<int, array>
      */
+    #[\Override]
     protected function getOptions()
     {
         return [

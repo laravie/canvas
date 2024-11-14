@@ -37,6 +37,7 @@ class ChannelMakeCommand extends \Illuminate\Foundation\Console\ChannelMakeComma
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
@@ -48,6 +49,7 @@ class ChannelMakeCommand extends \Illuminate\Foundation\Console\ChannelMakeComma
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -58,6 +60,7 @@ class ChannelMakeCommand extends \Illuminate\Foundation\Console\ChannelMakeComma
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();

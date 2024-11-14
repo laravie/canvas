@@ -22,6 +22,7 @@ class CodeMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getStub()
     {
         return $this->resolveStubPath('/stubs/class.stub');
@@ -43,6 +44,7 @@ class CodeMakeCommand extends GeneratorCommand
      *
      * @return array<int, array>
      */
+    #[\Override]
     protected function getOptions()
     {
         return [

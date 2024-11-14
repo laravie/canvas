@@ -38,11 +38,15 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
+    #[\Override]
     public function handle()
     {
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
     }
 
+    /**
+     * Run after code successfully generated.
+     */
     protected function afterCodeHasBeenGenerated(): void
     {
         if ($this->option('all')) {
@@ -80,6 +84,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @return void
      */
+    #[\Override]
     protected function createFactory()
     {
         $factory = Str::studly($this->getNameInput());
@@ -95,6 +100,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @return void
      */
+    #[\Override]
     protected function createMigration()
     {
         $table = Str::snake(Str::pluralStudly(class_basename($this->getNameInput())));
@@ -116,6 +122,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @return void
      */
+    #[\Override]
     protected function createSeeder()
     {
         $seeder = Str::studly(class_basename($this->getNameInput()));
@@ -131,6 +138,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @return void
      */
+    #[\Override]
     protected function createController()
     {
         $controller = Str::studly(class_basename($this->getNameInput()));
@@ -151,6 +159,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @return void
      */
+    #[\Override]
     protected function createPolicy()
     {
         $policy = Str::studly(class_basename($this->getNameInput()));
@@ -168,6 +177,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      * @param  string  $rootNamespace
      * @return string
      */
+    #[\Override]
     protected function getDefaultNamespace($rootNamespace)
     {
         return rtrim($this->generatorPreset()->modelNamespace(), '\\');
@@ -179,6 +189,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      * @param  string  $model
      * @return string
      */
+    #[\Override]
     protected function qualifyModel(string $model)
     {
         return $this->qualifyModelUsingCanvas($model);
@@ -190,6 +201,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      * @param  string  $name
      * @return string
      */
+    #[\Override]
     protected function getPath($name)
     {
         return $this->getPathUsingCanvas($name);
@@ -200,6 +212,7 @@ class ModelMakeCommand extends \Illuminate\Foundation\Console\ModelMakeCommand
      *
      * @return string
      */
+    #[\Override]
     protected function rootNamespace()
     {
         return $this->rootNamespaceUsingCanvas();
