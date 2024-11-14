@@ -19,7 +19,7 @@ class Package extends Preset
      */
     public function sourcePath(): string
     {
-        return sprintf(
+        return \sprintf(
             '%s/%s',
             $this->basePath(),
             $this->config('paths.src', 'src')

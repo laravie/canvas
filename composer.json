@@ -39,7 +39,7 @@
         "laravel/framework": "^9.52.15",
         "laravel/pint": "^1.4",
         "mockery/mockery": "^1.5.1",
-        "phpstan/phpstan": "^1.10.5",
+        "phpstan/phpstan": "^1.11",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ray": "^1.32.4"
     },

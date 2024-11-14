@@ -67,6 +67,6 @@ class Laravel extends Preset
      */
     public function getCustomStubPath(): ?string
     {
-        return sprintf('%s/%s', $this->basePath(), 'stubs');
+        return \sprintf('%s/%s', $this->basePath(), 'stubs');
     }
 }

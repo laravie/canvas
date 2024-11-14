@@ -61,7 +61,7 @@ abstract class Preset
      */
     public function resourcePath(): string
     {
-        return sprintf(
+        return \sprintf(
             '%s/%s',
             $this->basePath(),
             $this->config('paths.resource', 'resources')
@@ -73,7 +73,7 @@ abstract class Preset
      */
     public function factoryPath(): string
     {
-        return sprintf(
+        return \sprintf(
             '%s/%s',
             $this->basePath(),
             $this->config('factory.path', 'database/factories')
@@ -85,7 +85,7 @@ abstract class Preset
      */
     public function migrationPath(): string
     {
-        return sprintf(
+        return \sprintf(
             '%s/%s',
             $this->basePath(),
             $this->config('migration.path', 'database/migrations')
@@ -97,7 +97,7 @@ abstract class Preset
      */
     public function seederPath(): string
     {
-        return sprintf(
+        return \sprintf(
             '%s/%s',
             $this->basePath(),
             $this->config('seeder.path', 'database/seeders')
