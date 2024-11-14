@@ -8,6 +8,9 @@ use Orchestra\Canvas\Core\Concerns\ResolvesPresetStubs;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Input\InputOption;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[AsCommand(name: 'preset', description: 'Create canvas.yaml for the project')]
 class PresetMakeCommand extends GeneratorCommand
 {

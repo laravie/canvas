@@ -16,9 +16,6 @@
         <include>
             <directory suffix=".php">src/</directory>
         </include>
-        <exclude>
-            <file>src/Console/PresetMakeCommand.php</file>
-        </exclude>
     </coverage>
     <testsuites>
         <testsuite name="Canvas Test Suite">
