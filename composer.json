@@ -31,22 +31,23 @@
         "php": "^8.2",
         "composer-runtime-api": "^2.2",
         "composer/semver": "^3.0",
-        "illuminate/console": "^11.21",
-        "illuminate/database": "^11.21",
-        "illuminate/filesystem": "^11.21",
-        "illuminate/support": "^11.21",
+        "illuminate/console": "^11.31",
+        "illuminate/database": "^11.31",
+        "illuminate/filesystem": "^11.31",
+        "illuminate/support": "^11.31",
         "orchestra/canvas-core": "^9.0",
         "orchestra/testbench-core": "^9.2",
-        "symfony/polyfill-php83": "^1.28",
-        "symfony/yaml": "^7.0"
+        "symfony/polyfill-php83": "^1.30",
+        "symfony/yaml": "^7.0.3"
     },
     "require-dev": {
         "laravel/dusk": "^8.0",
         "laravel/framework": "^11.21",
+        "laravel/framework": "^11.31",
         "laravel/pint": "^1.17",
-        "mockery/mockery": "^1.6",
+        "mockery/mockery": "^1.6.10",
         "phpstan/phpstan": "^1.11",
-        "phpunit/phpunit": "^11.0",
+        "phpunit/phpunit": "^11.3.6",
         "spatie/laravel-ray": "^1.35"
     },
     "config": {
@@ -77,7 +78,7 @@
             "@php vendor/bin/pint",
             "@php vendor/bin/phpstan analyse --verbose"
         ],
-        "test": "@php vendor/bin/phpunit -c ./ --color",
+        "test": "@php vendor/bin/phpunit --no-configuration --color ./tests ./workbench/tests",
         "ci": [
             "@composer audit",
             "@prepare",
