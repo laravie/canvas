@@ -42,7 +42,6 @@
     },
     "require-dev": {
         "laravel/dusk": "^8.0",
-        "laravel/framework": "^11.21",
         "laravel/framework": "^11.31",
         "laravel/pint": "^1.17",
         "mockery/mockery": "^1.6.10",
