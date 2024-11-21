@@ -17,6 +17,9 @@ use function Illuminate\Filesystem\join_paths;
 use function Laravel\Prompts\select;
 use function Orchestra\Testbench\package_path;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[AsCommand(name: 'preset', description: 'Create canvas.yaml for the project')]
 class PresetMakeCommand extends GeneratorCommand
 {
@@ -78,6 +81,7 @@ class PresetMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getStub()
     {
         $name = Str::lower($this->getNameInput());
