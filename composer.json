@@ -37,7 +37,7 @@
         "illuminate/support": "^10.48.4",
         "orchestra/canvas-core": "^8.10.2",
         "orchestra/testbench-core": "^8.19",
-        "symfony/polyfill-php83": "^1.28",
+        "symfony/polyfill-php83": "^1.31",
         "symfony/yaml": "^6.2"
     },
     "require-dev": {
@@ -76,7 +76,10 @@
             "@php vendor/bin/pint",
             "@php vendor/bin/phpstan analyse"
         ],
-        "test": "@php vendor/bin/phpunit -c ./ --color",
+        "test": [
+            "@composer dump-autoload",
+            "@php vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php --color tests"
+        ],
         "ci": [
             "@composer audit",
             "@prepare",

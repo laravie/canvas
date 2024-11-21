@@ -10,6 +10,9 @@ use Symfony\Component\Console\Input\InputOption;
 
 use function Illuminate\Filesystem\join_paths;
 
+/**
+ * @codeCoverageIgnore
+ */
 #[AsCommand(name: 'preset', description: 'Create canvas.yaml for the project')]
 class PresetMakeCommand extends GeneratorCommand
 {

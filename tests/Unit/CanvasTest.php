@@ -14,7 +14,7 @@ class CanvasTest extends TestCase
     #[Test]
     public function it_can_setup_laravel_preset()
     {
-        $files = new Filesystem();
+        $files = new Filesystem;
         $preset = Canvas::preset([
             'preset' => 'laravel',
             'namespace' => 'App',
@@ -37,7 +37,7 @@ class CanvasTest extends TestCase
     #[Test]
     public function it_can_setup_package_preset()
     {
-        $files = new Filesystem();
+        $files = new Filesystem;
         $preset = Canvas::preset([
             'preset' => 'package',
             'namespace' => 'Orchestra\Foundation',

@@ -51,7 +51,7 @@ class ComponentMakeCommand extends \Illuminate\Foundation\Console\ComponentMakeC
     {
         if ($this->option('view') || ! $this->option('inline')) {
             $this->writeView(function () {
-                $this->components->info(sprintf('View for %s created successfully.', $this->type));
+                $this->components->info(\sprintf('View for %s created successfully.', $this->type));
             });
         }
     }

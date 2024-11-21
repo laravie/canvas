@@ -68,7 +68,7 @@ class PackageTest extends TestCase
         $this->expectException('InvalidArgumentException');
         $this->expectExceptionMessage("Please configure namespace configuration under 'canvas.yaml'");
         $directory = __DIR__;
-        $preset = new Package([], $directory, new Filesystem());
+        $preset = new Package([], $directory, new Filesystem);
 
         $preset->rootNamespace();
     }
