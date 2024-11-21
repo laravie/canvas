@@ -2,8 +2,6 @@
 
 namespace Orchestra\Canvas\Console;
 
-use Illuminate\Support\Str;
-use Illuminate\Filesystem\Filesystem;
 use Orchestra\Canvas\Core\Concerns\CodeGenerator;
 use Orchestra\Canvas\Core\Concerns\UsesGeneratorOverrides;
 use Orchestra\Canvas\GeneratorPreset;
