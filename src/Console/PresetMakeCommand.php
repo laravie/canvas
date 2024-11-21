@@ -30,6 +30,7 @@ class PresetMakeCommand extends GeneratorCommand
      *
      * @return string
      */
+    #[\Override]
     protected function getStub()
     {
         $name = Str::lower($this->getNameInput());
