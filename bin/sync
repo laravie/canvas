@@ -12,6 +12,8 @@ $version = ($input->hasParameterOption('--dev') && $input->hasParameterOption('-
 
 Illuminate\Support\Collection::make([
     'factory.stub' => 'Database/Console/Factories/stubs/factory.stub',
+    'dusk.pest.stub' => 'Foundation/Console/stubs/pest.stub',
+    'dusk.test.stub' => 'Foundation/Console/stubs/dusk.stub',
     'pest.stub' => 'Foundation/Console/stubs/pest.stub',
     'pest.unit.stub' => 'Foundation/Console/stubs/pest.unit.stub',
     'test.stub' => 'Foundation/Console/stubs/test.stub',
