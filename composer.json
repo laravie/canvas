@@ -56,9 +56,6 @@
         "sort-packages": true
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "9.0-dev"
-        },
         "laravel": {
             "providers": [
                 "Orchestra\\Canvas\\LaravelServiceProvider"
@@ -78,8 +75,10 @@
         ],
         "test": [
             "@composer dump-autoload",
-            "@php vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php --color ./tests ./workbench/tests"
+            "@php vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php --color tests",
+            "@php vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php --color workbench/tests"
         ],
+        "sync": "@php bin/sync",
         "ci": [
             "@composer audit",
             "@prepare",
