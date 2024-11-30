@@ -12,18 +12,13 @@ use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
 class Commander extends \Orchestra\Testbench\Console\Commander
 {
-    /**
-     * The environment file name.
-     *
-     * @var string
-     */
+    /** {@inheritDoc} */
     protected $environmentFile = '.env';
 
-    /**
-     * Resolve application implementation.
-     *
-     * @return \Closure(\Illuminate\Foundation\Application):void
-     */
+    /** {@inheritDoc} */
+    protected array $providers = [];
+
+    /** {@inheritDoc} */
     #[\Override]
     protected function resolveApplicationCallback()
     {
@@ -32,11 +27,7 @@ class Commander extends \Orchestra\Testbench\Console\Commander
         };
     }
 
-    /**
-     * Create Laravel application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
+    /** {@inheritDoc} */
     #[\Override]
     public function laravel()
     {

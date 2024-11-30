@@ -31,18 +31,18 @@
         "php": "^8.1",
         "composer-runtime-api": "^2.2",
         "composer/semver": "^3.0",
-        "illuminate/console": "^10.48.4",
-        "illuminate/database": "^10.48.4",
-        "illuminate/filesystem": "^10.48.4",
-        "illuminate/support": "^10.48.4",
+        "illuminate/console": "^10.48.25",
+        "illuminate/database": "^10.48.25",
+        "illuminate/filesystem": "^10.48.25",
+        "illuminate/support": "^10.48.25",
         "orchestra/canvas-core": "^8.10.2",
-        "orchestra/testbench-core": "^8.19",
+        "orchestra/testbench-core": "^8.30",
         "symfony/polyfill-php83": "^1.31",
         "symfony/yaml": "^6.2"
     },
     "require-dev": {
-        "laravel/framework": "^10.48.4",
-        "laravel/pint": "^1.6",
+        "laravel/framework": "^10.48.25",
+        "laravel/pint": "^1.17",
         "mockery/mockery": "^1.5.1",
         "phpstan/phpstan": "^1.11",
         "phpunit/phpunit": "^10.5",
@@ -56,9 +56,6 @@
         "sort-packages": true
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "9.0-dev"
-        },
         "laravel": {
             "providers": [
                 "Orchestra\\Canvas\\LaravelServiceProvider"
@@ -80,6 +77,7 @@
             "@composer dump-autoload",
             "@php vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php --color tests"
         ],
+        "sync": "@php bin/sync",
         "ci": [
             "@composer audit",
             "@prepare",
