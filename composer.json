@@ -29,18 +29,18 @@
     },
     "require": {
         "php": "^8.0",
-        "illuminate/database": "^9.52.15",
-        "illuminate/support": "^9.52.15",
+        "illuminate/database": "^9.52.18",
+        "illuminate/support": "^9.52.18",
         "orchestra/canvas-core": "^7.7",
-        "orchestra/testbench-core": "^7.31",
+        "orchestra/testbench-core": "^7.49",
         "symfony/polyfill-php83": "^1.31",
-        "symfony/yaml": "^5.4 || ^6.0"
+        "symfony/yaml": "^6.0.9"
     },
     "require-dev": {
-        "laravel/framework": "^9.52.15",
+        "laravel/framework": "^9.52.18",
         "laravel/pint": "^1.4",
         "mockery/mockery": "^1.5.1",
-        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan": "^2.0",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ray": "^1.32.4"
     },
@@ -48,9 +48,6 @@
         "sort-packages": true
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "8.0-dev"
-        },
         "laravel": {
             "providers": [
                 "Orchestra\\Canvas\\LaravelServiceProvider"
@@ -72,11 +69,13 @@
             "@composer dump-autoload",
             "@php vendor/bin/phpunit --no-coverage --no-configuration --bootstrap vendor/autoload.php --color tests"
         ],
+        "sync": "@php bin/sync",
         "ci": [
             "@prepare",
             "@lint",
             "@test"
         ]
     },
-    "minimum-stability": "stable"
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

@@ -6,37 +6,28 @@ use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 use Orchestra\Canvas\CanvasServiceProvider;
 use Orchestra\Canvas\LaravelServiceProvider;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
 class Commander extends \Orchestra\Testbench\Console\Commander
 {
-    /**
-     * The environment file name.
-     *
-     * @var string
-     */
+    /** {@inheritDoc} */
     protected $environmentFile = '.env';
 
-    /**
-     * Resolve application implementation.
-     *
-     * @return \Closure(\Illuminate\Foundation\Application):void
-     */
+    /** {@inheritDoc} */
+    protected array $providers = [];
+
+    /** {@inheritDoc} */
+    #[\Override]
     protected function resolveApplicationCallback()
     {
-        return function ($app) {
+        return static function ($app) {
             $app->register(CanvasServiceProvider::class);
         };
     }
 
-    /**
-     * Create Laravel application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
+    /** {@inheritDoc} */
     #[\Override]
     public function laravel()
     {
@@ -48,9 +39,10 @@ class Commander extends \Orchestra\Testbench\Console\Commander
             $app->register(LaravelServiceProvider::class);
 
             Collection::make($kernel->all())
-                ->reject(function (SymfonyCommand $command, string $name) {
-                    return Str::startsWith('make:', $name) || $command instanceof GeneratorCommand;
-                })->each(function (SymfonyCommand $command) {
+                ->reject(static function (SymfonyCommand $command, string $name) {
+                    return $command instanceof GeneratorCommand
+                        || $command instanceof MigrateMakeCommand;
+                })->each(static function (SymfonyCommand $command) {
                     $command->setHidden(true);
                 });
         }
