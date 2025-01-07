@@ -7,20 +7,15 @@ on:
 
 jobs:
   analyse:
-    runs-on: ${{ matrix.os }}
+    runs-on: "ubuntu-latest"
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        os:
-          - "ubuntu-latest"
-        php:
-          - 8.2
-        dependencies:
-          - "highest"
+        php: [8.3]
         experimental:
           - false
 
-    name: PHP${{ matrix.php }} PHPStan & Pint
+    name: PHP:${{ matrix.php }} Code Analysis
 
     steps:
       - name: Checkout code
@@ -36,23 +31,18 @@ jobs:
       - name: Install dependencies
         uses: "ramsey/composer-install@v3"
         with:
-          dependency-versions: "${{ matrix.dependencies }}"
+          dependency-versions: "highest"
           composer-options: "--prefer-dist --no-cache"
 
       - name: Execute Static Code Analysis
         run: vendor/bin/phpstan analyse
 
   lint:
-    runs-on: ${{ matrix.os }}
+    runs-on: "ubuntu-latest"
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        os:
-          - "ubuntu-latest"
-        php:
-          - 8.3
-        dependencies:
-          - "highest"
+        php: [8.3]
         experimental:
           - false
 
@@ -72,7 +62,7 @@ jobs:
       - name: Install dependencies
         uses: "ramsey/composer-install@v3"
         with:
-          dependency-versions: "${{ matrix.dependencies }}"
+          dependency-versions: "highest"
           composer-options: "--prefer-dist --no-cache"
 
       - name: PHP Lint

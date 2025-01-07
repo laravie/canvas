@@ -8,10 +8,10 @@ use Orchestra\Canvas\Core\Concerns\UsesGeneratorOverrides;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 /**
- * @see https://github.com/laravel/framework/blob/11.x/src/Illuminate/Foundation/Console/MailMakeCommand.php
+ * @see https://github.com/laravel/framework/blob/11.x/src/Illuminate/Foundation/Console/JobMiddlewareMakeCommand.php
  */
-#[AsCommand(name: 'make:mail', description: 'Create a new email class')]
-class MailMakeCommand extends \Illuminate\Foundation\Console\MailMakeCommand
+#[AsCommand(name: 'make:job-middleware', description: 'Create a new job middleware class')]
+class JobMiddlewareMakeCommand extends \Illuminate\Foundation\Console\JobMiddlewareMakeCommand
 {
     use CodeGenerator;
     use TestGenerator;
@@ -42,20 +42,6 @@ class MailMakeCommand extends \Illuminate\Foundation\Console\MailMakeCommand
     {
         /** @phpstan-ignore return.type */
         return $this->generateCode() ? self::SUCCESS : self::FAILURE;
-    }
-
-    /**
-     * Run after code successfully generated.
-     */
-    public function afterCodeHasBeenGenerated(string $className, string $path): void
-    {
-        if ($this->option('markdown') !== false) {
-            $this->writeMarkdownTemplate();
-        }
-
-        if ($this->option('view') !== false) {
-            $this->writeView();
-        }
     }
 
     /**

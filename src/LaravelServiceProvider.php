@@ -16,6 +16,7 @@ use Illuminate\Foundation\Console\EventMakeCommand;
 use Illuminate\Foundation\Console\ExceptionMakeCommand;
 use Illuminate\Foundation\Console\InterfaceMakeCommand;
 use Illuminate\Foundation\Console\JobMakeCommand;
+use Illuminate\Foundation\Console\JobMiddlewareMakeCommand;
 use Illuminate\Foundation\Console\ListenerMakeCommand;
 use Illuminate\Foundation\Console\MailMakeCommand;
 use Illuminate\Foundation\Console\ModelMakeCommand;
@@ -59,6 +60,7 @@ class LaravelServiceProvider extends ServiceProvider implements DeferrableProvid
         $this->registerExceptionMakeCommand();
         $this->registerFactoryMakeCommand();
         $this->registerJobMakeCommand();
+        $this->registerJobMiddlewareMakeCommand();
         $this->registerInterfaceMakeCommand();
         $this->registerListenerMakeCommand();
         $this->registerMailMakeCommand();
@@ -236,6 +238,18 @@ class LaravelServiceProvider extends ServiceProvider implements DeferrableProvid
     {
         $this->app->singleton(
             JobMakeCommand::class, static fn ($app) => new Console\JobMakeCommand($app['files'])
+        );
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerJobMiddlewareMakeCommand()
+    {
+        $this->app->singleton(
+            JobMiddlewareMakeCommand::class, static fn ($app) => new Console\JobMiddlewareMakeCommand($app['files'])
         );
     }
 
@@ -528,6 +542,8 @@ class LaravelServiceProvider extends ServiceProvider implements DeferrableProvid
             Console\InterfaceMakeCommand::class,
             JobMakeCommand::class,
             Console\JobMakeCommand::class,
+            JobMiddlewareMakeCommand::class,
+            Console\JobMiddlewareMakeCommand::class,
             ListenerMakeCommand::class,
             Console\ListenerMakeCommand::class,
             MailMakeCommand::class,

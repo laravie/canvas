@@ -24,8 +24,8 @@ class CanvasServiceProvider extends ServiceProvider implements DeferrableProvide
             $manager->setDefaultDriver('canvas');
         });
 
-        $this->app->singleton('orchestra.canvas', function (Application $app) {
-            $workingPath = \defined('CANVAS_WORKING_PATH') ? CANVAS_WORKING_PATH : $this->app->basePath();
+        $this->app->singleton('orchestra.canvas', static function (Application $app) {
+            $workingPath = \defined('CANVAS_WORKING_PATH') ? CANVAS_WORKING_PATH : $app->basePath();
 
             $filesystem = $app->make('files');
 
@@ -39,7 +39,7 @@ class CanvasServiceProvider extends ServiceProvider implements DeferrableProvide
                     'feature' => 'Tests\TestCase',
                 ]);
 
-                $config['namespace'] = rescue(fn () => rtrim($this->app->getNamespace(), '\\'), null, false);
+                $config['namespace'] = rescue(fn () => rtrim($app->getNamespace(), '\\'), null, false);
             }
 
             return Canvas::preset($config, $workingPath);
