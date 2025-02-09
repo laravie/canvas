@@ -16,25 +16,13 @@ class Canvas
         /** @var array<string, mixed> $configuration */
         $configuration = Arr::except($config, 'preset');
 
-        $preset = $config['preset'];
+        $preset = $config['preset'] ?? 'laravel';
 
-        $resolveDefaultPreset = function ($configuration, $basePath) use ($preset) {
-            if (class_exists($preset)) {
-                /**
-                 * @var class-string<\Orchestra\Canvas\Presets\Preset> $preset
-                 *
-                 * @return \Orchestra\Canvas\Presets\Preset
-                 */
-                return new $preset($configuration, $basePath);
-            }
-
-            return new Presets\Laravel($configuration, $basePath);
-        };
-
-        return match ($preset) {
-            'package' => new Presets\Package($configuration, $basePath),
-            'laravel' => new Presets\Laravel($configuration, $basePath),
-            default => $resolveDefaultPreset($configuration, $basePath),
+        return match (true) {
+            $preset === 'package' => new Presets\Package($configuration, $basePath),
+            $preset === 'laravel' => new Presets\Laravel($configuration, $basePath),
+            class_exists($preset) => new $preset($configuration, $basePath),
+            default => throw new InvalidArgumentException(sprintf('Unable to resolve %s preset', $preset)),
         };
     }
 }
