@@ -56,4 +56,27 @@ class CanvasTest extends TestCase
             ],
         ], $preset->config());
     }
+
+    #[Test]
+    public function it_can_setup_class_preset()
+    {
+        $files = new Filesystem;
+        $preset = Canvas::preset([
+            'preset' => Fixtures\CustomPackage::class,
+            'namespace' => 'Orchestra\Foundation',
+            'paths' => [
+                'src' => 'src',
+                'resources' => 'resources',
+            ],
+        ], __DIR__, $files);
+
+        $this->assertInstanceOf(Package::class, $preset);
+        $this->assertSame([
+            'namespace' => 'Orchestra\Foundation',
+            'paths' => [
+                'src' => 'src',
+                'resources' => 'resources',
+            ],
+        ], $preset->config());
+    }
 }
