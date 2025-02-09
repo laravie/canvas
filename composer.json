@@ -45,7 +45,8 @@
         "laravel/pint": "^1.17",
         "mockery/mockery": "^1.6.10",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^11.5"
+        "phpunit/phpunit": "^11.5.3",
+        "spatie/laravel-ray": "^1.39.1"
     },
     "config": {
         "preferred-install": {
@@ -69,7 +70,7 @@
         "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "lint": [
-            "@php vendor/bin/pint",
+            "@php vendor/bin/pint --ansi",
             "@php vendor/bin/phpstan analyse --verbose"
         ],
         "test": [
