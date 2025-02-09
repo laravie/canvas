@@ -11,7 +11,7 @@ Code Generators for Laravel Applications and Packages
 [![Total Downloads](https://poser.pugx.org/orchestra/canvas/downloads)](https://packagist.org/packages/orchestra/canvas)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/canvas/v/unstable)](https://packagist.org/packages/orchestra/canvas)
 [![License](https://poser.pugx.org/orchestra/canvas/license)](https://packagist.org/packages/orchestra/canvas)
-[![Coverage Status](https://coveralls.io/repos/github/orchestral/canvas/badge.svg?branch=9.x)](https://coveralls.io/github/orchestral/canvas?branch=8.x)
+[![Coverage Status](https://coveralls.io/repos/github/orchestral/canvas/badge.svg?branch=9.x)](https://coveralls.io/github/orchestral/canvas?branch=9.x)
 
 ## Installation
 
