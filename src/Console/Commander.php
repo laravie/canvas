@@ -10,6 +10,9 @@ use Orchestra\Canvas\Core\Concerns\CreatesUsingGeneratorPreset;
 use Orchestra\Canvas\LaravelServiceProvider;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
+/**
+ * @codeCoverageIgnore
+ */
 class Commander extends \Orchestra\Testbench\Console\Commander
 {
     /** {@inheritDoc} */
