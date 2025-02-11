@@ -10,177 +10,143 @@ class GeneratorPreset extends Preset
 {
     /**
      * Preset name.
-     *
-     * @return string
      */
-    public function name()
+    public function name(): string
     {
         return 'canvas';
     }
 
     /**
      * Get the path to the base working directory.
-     *
-     * @return string
      */
-    public function basePath()
+    public function basePath(): string
     {
         return $this->canvas()->basePath();
     }
 
     /**
      * Get the path to the source directory.
-     *
-     * @return string
      */
-    public function sourcePath()
+    public function sourcePath(): string
     {
         return $this->canvas()->sourcePath();
     }
 
     /**
      * Get the path to the testing directory.
-     *
-     * @return string
      */
-    public function testingPath()
+    public function testingPath(): string
     {
         return $this->canvas()->testingPath();
     }
 
     /**
      * Get the path to the resource directory.
-     *
-     * @return string
      */
-    public function resourcePath()
+    public function resourcePath(): string
     {
         return $this->canvas()->resourcePath();
     }
 
     /**
      * Get the path to the view directory.
-     *
-     * @return string
      */
-    public function viewPath()
+    public function viewPath(): string
     {
         return join_paths($this->resourcePath(), 'views');
     }
 
     /**
      * Get the path to the factory directory.
-     *
-     * @return string
      */
-    public function factoryPath()
+    public function factoryPath(): string
     {
         return $this->canvas()->factoryPath();
     }
 
     /**
      * Get the path to the migration directory.
-     *
-     * @return string
      */
-    public function migrationPath()
+    public function migrationPath(): string
     {
         return $this->canvas()->migrationPath();
     }
 
     /**
      * Get the path to the seeder directory.
-     *
-     * @return string
      */
-    public function seederPath()
+    public function seederPath(): string
     {
         return $this->canvas()->seederPath();
     }
 
     /**
      * Preset namespace.
-     *
-     * @return string
      */
-    public function rootNamespace()
+    public function rootNamespace(): string
     {
         return $this->canvas()->rootNamespace().'\\';
     }
 
     /**
      * Command namespace.
-     *
-     * @return string
      */
-    public function commandNamespace()
+    public function commandNamespace(): string
     {
         return $this->canvas()->commandNamespace().'\\';
     }
 
     /**
      * Model namespace.
-     *
-     * @return string
      */
-    public function modelNamespace()
+    public function modelNamespace(): string
     {
         return $this->canvas()->modelNamespace().'\\';
     }
 
     /**
      * Provider namespace.
-     *
-     * @return string
      */
-    public function providerNamespace()
+    public function providerNamespace(): string
     {
         return $this->canvas()->providerNamespace().'\\';
     }
 
     /**
      * Database factory namespace.
-     *
-     * @return string
      */
-    public function factoryNamespace()
+    public function factoryNamespace(): string
     {
         return $this->canvas()->factoryNamespace().'\\';
     }
 
     /**
      * Database seeder namespace.
-     *
-     * @return string
      */
-    public function seederNamespace()
+    public function seederNamespace(): string
     {
         return $this->canvas()->seederNamespace().'\\';
     }
 
     /**
      * Testing namespace.
-     *
-     * @return string
      */
-    public function testingNamespace()
+    public function testingNamespace(): string
     {
         return $this->canvas()->testingNamespace().'\\';
     }
 
     /**
      * Preset has custom stub path.
-     *
-     * @return bool
      */
-    public function hasCustomStubPath()
+    public function hasCustomStubPath(): bool
     {
         return ! \is_null($this->canvas()->getCustomStubPath());
     }
 
     /** {@inheritDoc} */
     #[\Override]
-    public function userProviderModel($guard = null)
+    public function userProviderModel(?string $guard = null): ?string
     {
         if (\is_null($guard) || $guard === $this->app->make('config')->get('auth.defaults.guard')) {
             return $this->canvas()->config('user-auth-model')
