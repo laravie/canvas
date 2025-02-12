@@ -6,12 +6,12 @@ Code Generators for Laravel Applications and Packages
 * outside of Laravel installation such as when building Laravel packages.
 * with Laravel by allowing a few customizations to the stub resolved class and namespace.
 
-[![tests](https://github.com/orchestral/canvas/workflows/tests/badge.svg?branch=8.x)](https://github.com/orchestral/canvas/actions?query=workflow%3Atests+branch%3A8.x)
+[![tests](https://github.com/orchestral/canvas/actions/workflows/tests.yaml/badge.svg?branch=9.x)](https://github.com/orchestral/canvas/actions/workflows/tests.yaml)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/canvas/v/stable)](https://packagist.org/packages/orchestra/canvas)
 [![Total Downloads](https://poser.pugx.org/orchestra/canvas/downloads)](https://packagist.org/packages/orchestra/canvas)
 [![Latest Unstable Version](https://poser.pugx.org/orchestra/canvas/v/unstable)](https://packagist.org/packages/orchestra/canvas)
 [![License](https://poser.pugx.org/orchestra/canvas/license)](https://packagist.org/packages/orchestra/canvas)
-[![Coverage Status](https://coveralls.io/repos/github/orchestral/canvas/badge.svg?branch=8.x)](https://coveralls.io/github/orchestral/canvas?branch=8.x)
+[![Coverage Status](https://coveralls.io/repos/github/orchestral/canvas/badge.svg?branch=9.x)](https://coveralls.io/github/orchestral/canvas?branch=9.x)
 
 ## Installation
 

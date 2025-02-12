@@ -5,32 +5,32 @@ namespace Orchestra\Canvas\Console;
 use Illuminate\Contracts\Console\Kernel as ConsoleKernel;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\Collection;
+use Orchestra\Canvas\CanvasServiceProvider;
 use Orchestra\Canvas\Core\Concerns\CreatesUsingGeneratorPreset;
 use Orchestra\Canvas\LaravelServiceProvider;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
+/**
+ * @codeCoverageIgnore
+ */
 class Commander extends \Orchestra\Testbench\Console\Commander
 {
-    /**
-     * The environment file name.
-     */
+    /** {@inheritDoc} */
     protected string $environmentFile = '.env';
 
-    /**
-     * List of providers.
-     *
-     * @var array<int, class-string<\Illuminate\Support\ServiceProvider>>
-     */
-    protected array $providers = [
-        \Orchestra\Canvas\Core\LaravelServiceProvider::class,
-        \Orchestra\Canvas\CanvasServiceProvider::class,
-    ];
+    /** {@inheritDoc} */
+    protected array $providers = [];
 
-    /**
-     * Create Laravel application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
+    /** {@inheritDoc} */
+    #[\Override]
+    protected function resolveApplicationCallback()
+    {
+        return static function ($app) {
+            $app->register(CanvasServiceProvider::class);
+        };
+    }
+
+    /** {@inheritDoc} */
     #[\Override]
     public function laravel()
     {
