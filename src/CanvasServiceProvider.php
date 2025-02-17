@@ -37,6 +37,7 @@ class CanvasServiceProvider extends ServiceProvider implements DeferrableProvide
                 Arr::set($config, 'testing.extends', [
                     'unit' => 'PHPUnit\Framework\TestCase',
                     'feature' => 'Tests\TestCase',
+                    'browser' => 'Tests\DuskTestCase',
                 ]);
 
                 $config['namespace'] = rescue(fn () => rtrim($app->getNamespace(), '\\'), null, false);
