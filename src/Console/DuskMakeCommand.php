@@ -6,6 +6,7 @@ use Laravel\Dusk\Console\MakeCommand;
 use Orchestra\Canvas\Core\Concerns\CodeGenerator;
 use Orchestra\Canvas\Core\Concerns\UsesGeneratorOverrides;
 use Orchestra\Canvas\GeneratorPreset;
+use Symfony\Component\Console\Attribute\AsCommand;
 
 /**
  * @see https://github.com/laravel/framework/blob/11.x/src/Illuminate/Routing/Console/ControllerMakeCommand.php
