@@ -73,7 +73,7 @@ class DuskMakeCommand extends MakeCommand
     {
         $namespaceTestCase = $testCase = str_replace('/', '\\', $testCase);
 
-        if (Str::startsWith($testCase, '\\')) {
+        if (str_starts_with($testCase, '\\')) {
             $stub = str_replace('DummyNamespace', trim($testCase, '\\'), $stub);
         } else {
             $stub = str_replace('DummyNamespace', $namespaceTestCase, $stub);
